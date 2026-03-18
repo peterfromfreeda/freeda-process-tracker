@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +28,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+          <div className="max-w-[1400px] mx-auto px-8 py-3 flex items-center justify-between">
+            <Link href="/projects" className="text-sm font-semibold text-slate-800">
+              Freeda · Process builder
+            </Link>
+            <div className="flex items-center gap-4 text-sm">
+              <Link href="/projects" className="text-slate-500 hover:text-slate-800">
+                Projects
+              </Link>
+              <Link href="/template" className="text-slate-500 hover:text-slate-800">
+                Macro template
+              </Link>
+              <Link href="/" className="text-slate-400 hover:text-slate-700">
+                Sandbox
+              </Link>
+            </div>
+          </div>
+        </div>
         {children}
       </body>
     </html>
